@@ -1,0 +1,118 @@
+body{
+    background:#f4f6f9;
+    font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-top:30px;
+}
+
+.menu{
+    text-align:center;
+    margin:20px 0;
+}
+
+.menu a{
+    background:#2e7d32;
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:5px;
+    margin:5px;
+}
+
+.banner{
+    background:#4CAF50;
+    color:white;
+    text-align:center;
+    padding:30px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.article{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.article h2{
+    color:#1e40af;
+}
+
+.btn-modifier{
+    background:#2196F3;
+    color:white;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:5px;
+}
+
+.btn-supprimer{
+    background:#f44336;
+    color:white;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:5px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+    color:#666;
+}
+.btn-modifier,
+.btn-supprimer{
+    padding:8px 15px;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    margin-right:10px;
+}
+
+.btn-modifier{
+    background:orange;
+}
+
+.btn-supprimer{
+    background:red;
+}
+.btn-modifier{
+    background:orange;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:5px;
+    margin-right:10px;
+}
+
+.btn-supprimer{
+    background:red;
+    color:white;
+    padding:10px 15px;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.btn-modifier:hover,
+.btn-supprimer:hover{
+    opacity:0.8;
+}
+.image-article{
+    width:100%;
+    max-height:300px;
+    object-fit:cover;
+    border-radius:10px;
+    margin-bottom:15px;
+}

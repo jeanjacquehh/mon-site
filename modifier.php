@@ -1,60 +1,63 @@
 <?php
-
-$con = mysqli_connect("localhost","root","","mabase");
+include("connexion.php");
 
 $id = $_GET['id'];
 
-$res = mysqli_query($con,"SELECT * FROM client WHERE id=$id");
+$resultat = mysqli_query($connexion, "SELECT * FROM articles WHERE id=$id");
+$article = mysqli_fetch_assoc($resultat);
 
-$row = mysqli_fetch_assoc($res);
+if(isset($_POST['modifier']))
+{
+    $titre = $_POST['titre'];
+    $contenu = $_POST['contenu'];
 
+    mysqli_query($connexion,
+    "UPDATE articles
+    SET titre='$titre', contenu='$contenu'
+    WHERE id=$id");
+
+    header("Location: index.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Modifier client</title>
+<meta charset="utf-8">
+<title>Modifier un article</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<form method="POST">
+<div class="container">
 
-    <input type="text" name="nom" value="<?php echo $row['nom']; ?>"><br><br>
+<h1>Modifier un article</h1>
 
-    <input type="text" name="prenom" value="<?php echo $row['prenom']; ?>"><br><br>
+<form method="post">
 
-    <input type="text" name="age" value="<?php echo $row['age']; ?>"><br><br>
+<input type="text"
+name="titre"
+value="<?php echo $article['titre']; ?>"
+required>
 
-    <input type="submit" name="modifier" value="Modifier">
+<br><br>
+
+<textarea
+name="contenu"
+rows="8"
+required><?php echo $article['contenu']; ?></textarea>
+
+<br><br>
+
+<button type="submit" name="modifier">
+Modifier
+</button>
 
 </form>
 
+</div>
+
 </body>
 </html>
-
-<?php
-
-if(isset($_POST['modifier']))
-{
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $age = $_POST['age'];
-
-    $sql = "UPDATE client
-            SET nom='$nom',
-                prenom='$prenom',
-                age='$age'
-            WHERE id=$id";
-
-    if(mysqli_query($con,$sql))
-    {
-        header("Location: travail8.php");
-        exit();
-    }
-    else
-    {
-        echo mysqli_error($con);
-    }
-}
-
-?>
